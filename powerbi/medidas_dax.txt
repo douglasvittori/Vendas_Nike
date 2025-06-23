@@ -1,0 +1,88 @@
+% Faturamento Categoria = 
+DIVIDE(
+    [Faturamento],[Faturamento (Sem Contexto de Filtro)],0
+)
+
+----------------------------------------------------------
+
+Desconto Médio = AVERAGE(fNike[VALOR DESCONTO])
+
+----------------------------------------------------------
+
+Desconto Médio % = AVERAGE(fNike[Desconto %])
+
+----------------------------------------------------------
+
+Faturamento = SUMX(
+    fNike,
+    fNike[UNIDADES VENDIDAS] * fNike[PREÇO FINAL ]
+)
+
+Faturamento (Sem Contexto de Filtro) = 
+CALCULATE(
+    [Faturamento],
+    ALL(
+        fNike
+    )
+)
+
+----------------------------------------------------------
+
+Qtd Unidades Vendidas = SUM(fNike[UNIDADES VENDIDAS])
+
+----------------------------------------------------------
+
+Qtd Vendas = DISTINCTCOUNT(fNike[ID VENDA])
+
+----------------------------------------------------------
+
+Tempo Médio Entrega em Dias = AVERAGE(fNike[TEMPO DE ENTREGA(DIAS)])
+
+----------------------------------------------------------
+
+Ticket Médio = 
+DIVIDE(
+    [Faturamento],
+    [Qtd Vendas],
+    0
+)
+
+----------------------------------------------------------
+
+Total Descontos = sum(fNike[VALOR DESCONTO])
+
+----------------------------------------------------------
+
+Total Faturamento Boleto = 
+CALCULATE(
+    [Faturamento],
+    dMetodoPg[MÉTODO DE PAGAMENTO] = "Boleto"
+)
+
+----------------------------------------------------------
+
+Total Faturamento Cartão = 
+CALCULATE(
+    [Faturamento],
+    dMetodoPg[MÉTODO DE PAGAMENTO] = "Cartão"
+)
+
+----------------------------------------------------------
+
+Total Faturamento Crédito em Loja = 
+CALCULATE(
+    [Faturamento],
+    dMetodoPg[MÉTODO DE PAGAMENTO] = "Crédito em Loja"
+)
+
+----------------------------------------------------------
+
+Total Faturamento Pix = 
+CALCULATE(
+    [Faturamento],
+    dMetodoPg[MÉTODO DE PAGAMENTO] = "Pix"
+)
+
+----------------------------------------------------------
+
+Total Taxas = SUM(fNike[VALOR TAXA])
