@@ -2,6 +2,8 @@
 
 Este projeto consiste em uma análise de vendas utilizando dados reais disponibilizados pela própria Nike.  
 
+[🔗 Acesse o projeto publicado no Power BI](https://app.powerbi.com/view?r=eyJrIjoiYTMyOGUyYjYtNjkwZi00NDZjLWI5MWMtODg1ZmViM2Y0YmRhIiwidCI6ImUyYmViMmFiLTliZjctNDYyZC1hZDMxLWE3NjJkMmNkZGVhNiJ9)
+
 ## 🏆 Objetivo do Projeto
 
 O objetivo é aplicar técnicas de modelagem de dados, ETL, criação de KPIs com DAX e desenvolvimento de um dashboard interativo no Power BI.
